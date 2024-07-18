@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var loginID = document.getElementById("loginID").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (name == "" || loginID == "" || password == "" || confirmPassword == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            if (isNaN(loginID)) {
+                alert("LoginID must be a number");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body >
+    <section class="signup">
+        <h1 class="heading">Signup Page</h1>
+        <form onsubmit="return validateForm()" action="login.html">
+            <table class="table">
+                <tr class="data">
+                    <td>Name</td>
+                    <td><input type="text" id="name" placeholder="Enter name"></td>
+                </tr>
+                <tr class="data">
+                    <td>LoginID</td>
+                    <td class="entries"><input type="number" id="loginID" placeholder="ex.5"></td>
+                </tr>
+                <tr class="data">
+                    <td>Create Password</td>
+                    <td><input type="password" id="password" class="entries" placeholder="*******"></td>
+                </tr>
+                <tr class="data">
+                    <td>Confirm Password</td>
+                    <td><input type="password" id="confirmPassword" class="entries" placeholder="*******"></td>
+                </tr>
+            </table>
+            <button type="submit" class="button">Goto login</button>
+        </form>
+    </section>
+</body>
+</html>

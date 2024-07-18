@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    
+        var storedName = "Divya";
+        var storedLoginID = 5; 
+        var storedPassword = "password123";
+
+        function validateLogin() {
+            var name = document.getElementById("name").value;
+            var loginID = parseInt(document.getElementById("loginID").value, 10); 
+            var password = document.getElementById("password").value;
+
+            if (name === "" || isNaN(loginID) || password === "") {
+                alert("All fields must be filled out correctly");
+                return false;
+            }
+
+            if (name !== storedName || loginID !== storedLoginID || password !== storedPassword) {
+                alert("Invalid credentials");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <section class="login">
+        <h1 class="heading">Login Page</h1>
+        <form onsubmit="return validateLogin()" action="tic-tac-toe.html">
+            <table class="table">
+                <tr class="data">
+                    <td>Name</td>
+                    <td><input type="text" id="name" placeholder="Divya"></td>
+                </tr>
+                <tr class="data">
+                    <td>LoginID</td>
+                    <td><input type="number" id="loginID" placeholder="5"></td>
+                </tr>
+                <tr class="data">
+                    <td>Password</td>
+                    <td><input type="password" id="password" placeholder="password123"></td>
+                </tr>
+            </table>
+            <button type="submit" class="button">Start Game</button>
+        </form>
+    </section>
+</body>
+</html>
